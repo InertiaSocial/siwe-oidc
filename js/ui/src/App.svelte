@@ -64,15 +64,13 @@
 					expirationTime: expirationTime.toISOString(),
 					uri: window.location.origin,
 					version: '1',
-					statement: `You are signing in to ${window.location.host}.`,
+					statement: `You are signing-in to ${window.location.host}.`,
 					nonce,
 					resources: [redirect],
 				});
 
 				const preparedMessage = msgToSign.prepareMessage();
-
 				await new Promise((resolve) => setTimeout(resolve, 1000));
-
 				const signature = await signMessage(config, {
 					message: preparedMessage,
 					account: account.address,
